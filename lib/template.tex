@@ -1,0 +1,183 @@
+\documentclass[$fontsize$,$papersize$]{scrartcl}  
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\pagestyle{plain}  
+\usepackage{fancyvrb}
+
+%table
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+
+\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
+\usepackage{url}
+
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+
+\setcounter{secnumdepth}{0}
+
+\VerbatimFootnotes % -- allows verbatim text in footnotes
+
+$for(header-includes)$
+    $header-includes$
+$endfor$
+
+$if(title)$
+    \title{$title$}
+$endif$
+
+\author{$for(author)$$author$$sep$\\$endfor$}
+
+$if(date)$
+    \date{$date$}
+$endif$
+
+
+%%%%% Page Style %%%%%
+\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+\newpairofpagestyles{main-pagestyle}{
+  \clearpairofpagestyles
+  \ihead{\headmark}
+  \automark{section}
+  \ofoot{\thepage}
+  \addtokomafont{pageheadfoot}{\upshape}
+}
+\pagestyle{main-pagestyle}
+
+
+%%%%% Font Style %%%%%
+\usepackage[default]{sourcesanspro}
+\usepackage{sourcecodepro}
+\ifxetex
+    \makeatletter
+    \defaultfontfeatures[\ttfamily]
+      { Numbers   = \sourcecodepro@figurestyle,
+        Scale     = \SourceCodePro@scale,
+        Extension = .otf }
+    \setmonofont
+      [ UprightFont    = *-\sourcecodepro@regstyle,
+        ItalicFont     = *-\sourcecodepro@regstyle It,
+        BoldFont       = *-\sourcecodepro@boldstyle,
+        BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+      {SourceCodePro}
+    \makeatother
+\fi
+
+%%%%% Document Start %%%%%
+\begin{document}
+
+%%%%% Title Page %%%%%
+\begin{titlepage}
+    \begin{center}
+        $if(institution)$
+            {\scshape\huge $institution$ \par}
+            \vspace{0.5cm}
+        $endif$
+  
+        $if(faculty)$
+            {\scshape\Large $faculty$ \par}
+        $endif$
+    
+        $if(course)$
+            {\scshape\large $course$ \par}
+        $endif$
+
+        \vspace{2.0cm}
+
+        $if(title)$
+            $for(title)$
+                {\LARGE\bfseries $title$ \par}
+            $endfor$
+        $endif$
+
+        \vspace{1.5cm}
+
+        $if(subtitle)$
+            {\scshape\large\bfseries $subtitle$ \par}
+        $endif$
+        
+        \vspace{1.5cm}
+
+        $if(author)$
+            {\scshape\normalsize Author: $author$ \par}
+        $endif$
+
+        \vspace{1.5cm}
+
+        $if(date)$
+            {\scshape\normalsize Datum: $date$ \par}
+        $endif$
+
+      \end{center}
+\end{titlepage}
+
+
+%%%%% Abstract %%%%%
+$if(abstract)$
+    \thispagestyle{plain}
+    \begin{abstract}
+        $abstract$
+    \end{abstract}
+    \clearpage
+$endif$
+
+
+%%%%% Declaration %%%%%
+\thispagestyle{plain}
+\section*{Eidesstattliche Erklärung}
+
+Ich versichere hiermit an Eides Statt durch meine Unterschrift, dass ich die vorliegende Arbeit selbstständig und ohne fremde Hilfe angefertigt habe.
+Alle Stellen, die wörtlich oder dem Sinn nach auf Publikationen oder Vorträgen anderer Autoren beruhen, sind als solche kenntlich gemacht.
+Ich versichere außerdem, dass ich keine anderen als die angegebenen Quellen verwendet habe.
+Diese Versicherung bezieht sich auch auf alle in der Arbeit enthaltenen Tabellen, Abbildungen und dergleichen.
+
+Die Arbeit wurde bisher keiner weiteren Prüfungsbehörde vorgelegt und auch noch nicht veröffentlicht.
+
+$if(author)$
+$if(place)$
+$if(date)$
+    \vspace{2.5cm}
+    $place$, den $date$\newline
+    $author$
+$endif$
+$endif$
+$endif$
+\clearpage
+
+
+%%%%% Table of Contents %%%%%
+$if(toc)$
+    \setcounter{secnumdepth}{5}
+    \tableofcontents
+    \clearpage
+
+    $if(graphics)$
+        \listoffigures
+        \addcontentsline{toc}{section}{\listfigurename}
+        \clearpage
+    $endif$
+
+    $if(tables)$
+        \listoftables
+        \addcontentsline{toc}{section}{\listtablename}
+        \clearpage
+    $endif$
+$endif$
+
+
+$body$
+
+
+
+\end{document}
