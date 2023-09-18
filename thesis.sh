@@ -1,14 +1,14 @@
 mkdir -p dist
-pandoc src/document.md lib/bibliography.md \
+pandoc src/document.md lib/thesis/bibliography.md \
     --from markdown \
     --to pdf \
     --filter pandoc-crossref \
     --standalone \
-    --template lib/template.tex \
+    --template lib/thesis/template.tex \
     --resource-path src \
     --metadata-file src/meta.yaml \
     --citeproc \
     --bibliography src/bibliography.bib \
-    --csl lib/citation.csl \
+    --csl lib/thesis/citation.csl \
     --toc \
     --output dist/thesis.pdf
