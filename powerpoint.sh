@@ -1,14 +1,12 @@
 mkdir -p dist
-pandoc src/document.md \
+pandoc ./powerpoint/document.md \
     --from markdown \
     --to pptx \
     --filter pandoc-crossref \
     --standalone \
-    --reference-doc lib/powerpoint/reference.pptx \
     --resource-path src \
-    --metadata-file src/meta.yaml \
+    --metadata-file ./powerpoint/settings.yaml \
     --citeproc \
-    --bibliography src/bibliography.bib \
-    --csl lib/powerpoint/citation.csl \
-    --toc \
+    --bibliography ./powerpoint/sources.bib \
+    --csl ./powerpoint/.template/citation.csl \
     --output dist/powerpoint.pptx

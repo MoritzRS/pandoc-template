@@ -1,28 +1,29 @@
-# general
+# Content #
 title: Presentation
 subtitle: Just a Test
-abstract: Zusammenfassung
+abstract: |
+  Zusammenfassung
 
-# author
+# Author #
 author: Moritz R. Schulz
 institute: Hochschule Schmalkalden
 place: Schmalkalden
 date: \today
 
-# document setup
+# Document Setup #
 papersize: a4paper
 fontsize: 11pt
 lang: de-DE
 babel-lang: ngerman
 
-# figures
+# Figures #
 lofTitle: Abbildungsverzeichnis
 figureTitle: Abbildung
 figPrefix:
   - Abbildung
   - Abbildungen
 
-# tables
+# Tables #
 lotTitle: Tabellenverzeichnis
 tableTitle: Tabelle
 tblPrefix:
