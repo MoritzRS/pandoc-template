@@ -1,13 +1,13 @@
 mkdir -p dist
-pandoc ./beamer/document.md \
+pandoc ./presentation/document.md \
     --from markdown \
     --to beamer \
     --filter pandoc-crossref \
     --standalone \
-    --include-in-header ./beamer/.template/theme.tex \
-    --resource-path ./beamer:./beamer/.template/theme \
-    --metadata-file ./beamer/settings.yaml \
+    --include-in-header ./presentation/.template/theme.tex \
+    --resource-path ./presentation:./presentation/.template/theme \
+    --metadata-file ./presentation/settings.yaml \
     --citeproc \
-    --bibliography ./beamer/sources.bib \
-    --csl ./beamer/.template/citation.csl \
+    --bibliography ./presentation/sources.bib \
+    --csl ./presentation/.template/citation.csl \
     --output dist/beamer.pdf

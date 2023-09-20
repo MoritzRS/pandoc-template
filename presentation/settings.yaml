@@ -1,18 +1,12 @@
 # Content #
 title: Presentation
 subtitle: Just a Test
-abstract: |
-  Zusammenfassung
-
-# Author #
 author: Moritz R. Schulz
 institute: Hochschule Schmalkalden
 place: Schmalkalden
-date: \today
+date: 01.01.1970
 
-# Document Setup #
-papersize: a4paper
-fontsize: 11pt
+# Language Setup #
 lang: de-DE
 babel-lang: ngerman
 

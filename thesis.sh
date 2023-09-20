@@ -5,7 +5,7 @@ pandoc ./thesis/document.md ./thesis/.template/bibliography.md \
     --filter pandoc-crossref \
     --standalone \
     --template ./thesis/.template/template.tex \
-    --resource-path src \
+    --resource-path ./thesis \
     --metadata-file ./thesis/settings.yaml \
     --citeproc \
     --bibliography ./thesis/sources.bib \
